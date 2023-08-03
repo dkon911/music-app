@@ -8,6 +8,7 @@ const image = document.getElementById('cover'),
     prevBtn = document.getElementById('prev'),
     nextBtn = document.getElementById('next'),
     playBtn = document.getElementById('play'),
+    ranBtn = document.getElementById('shuff');
     background = document.getElementById('bg-img');
 
 const music = new Audio();
@@ -16,7 +17,7 @@ const songs = [
     {
         path: 'assets/1.mp3',
         displayName: 'Slow Dancing in the Dark',
-        cover: 'assets/1.jpg',
+        cover: 'assets/1.jpeg',
         artist: 'Joji',
     },
     {
@@ -80,6 +81,12 @@ function pauseMusic() {
     music.pause();
 }
 
+function randomMusic() {
+    musicIndex = Math.floor(Math.random() * songs.length);
+    loadMusic(songs[musicIndex]);
+    playMusic();
+}
+
 function loadMusic(song) {
     music.src = song.path;
     title.textContent = song.displayName;
@@ -93,6 +100,8 @@ function changeMusic(direction) {
     loadMusic(songs[musicIndex]);
     playMusic();
 }
+
+
 
 function updateProgressBar() {
     const { duration, currentTime } = music;
@@ -113,6 +122,8 @@ function setProgressBar(e) {
 playBtn.addEventListener('click', togglePlay);
 prevBtn.addEventListener('click', () => changeMusic(-1));
 nextBtn.addEventListener('click', () => changeMusic(1));
+ranBtn.addEventListener('click', () => randomMusic());
+
 music.addEventListener('ended', () => changeMusic(1));
 music.addEventListener('timeupdate', updateProgressBar);
 playerProgress.addEventListener('click', setProgressBar);
