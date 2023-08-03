@@ -36,6 +36,18 @@ const songs = [
         displayName: 'Cupid',
         cover: 'assets/4.jpg',
         artist: 'FIFTY FIFTY',
+    },
+    {
+        path: 'assets/telephones.mp3',
+        displayName: 'Telephones',
+        cover: 'assets/telephones.jpeg',
+        artist: 'Vacations',
+    },
+    {
+        path: 'assets/seasons.mp3',
+        displayName: 'seasons',
+        cover: 'assets/seas.jpeg',
+        artist: 'wave to earth',
     }
 ];
 
